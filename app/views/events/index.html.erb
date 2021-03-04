@@ -9,7 +9,7 @@
               <p><%= event.description %></p><br />
               <p><%= event.date.to_date %></p>
               <p><%=  event.date.strftime('%I:%M %p') %></p>
-              <small><%= event.user.name %></small>
+              <small><%= event.creator.name %></small>
             </div>
           </div>
         </article>
