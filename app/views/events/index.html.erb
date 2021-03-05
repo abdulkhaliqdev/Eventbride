@@ -1,19 +1,28 @@
-  <div class="container pt-6">
-    <h1 class="title has-text-centered has-text-info">Incoming Events</h1>
-    <% @events.each do |event| %>
-      <div class="box">
-        <article class="media">
-          <div class="media-content">
-            <div class="content">
-              <strong><%= event.event %></strong><br />
-              <p><%= event.description %></p><br />
-              <p><%= event.date.to_date %></p>
-              <p><%=  event.date.strftime('%I:%M %p') %></p>
-              <small><%= event.creator.name %></small>
-            </div>
-          </div>
-        </article>
-      </div>
-    <% end %>
+<div class="container is-flex mt-6 is-justify-content-space-between">
+  <h1 class="title has-text-info">Incoming Events</h1>
+  <p class="control mr-3">
+    <%= link_to 'Create Event', new_event_path, class: "button is-primary" %>
+  </p>
+</div>
+<div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-space-between">
+<% @events.each do |event| %>
+  <div class="card mb-4 max-width">
+  <header class="card-header">
+    <p class="card-header-title">
+      <strong><%= event.event %></strong><br />
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p><%= event.description %></p><br />
+      <p><%= event.date.to_date %></p>
+      <p><%=  event.date.strftime('%I:%M %p') %></p>
+    </div>
   </div>
-
+  <footer class="card-footer">
+    <p class= 'card-footer-item' ><%= link_to 'More Info', event %></p>
+    <p class= 'card-footer-item'><%= link_to 'Become Attendee', event %></p>
+  </footer>
+  </div>
+<% end %>
+</div>

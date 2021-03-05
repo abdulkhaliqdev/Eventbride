@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="title is-1">
+    <%= @user.name%>
+  </h1>
+<div class="columns">
+  <div class="column">
+    <h2 class="title is-4">
+      Your Events
+    </h2>
+    <% @user.created_events.each do |t| %>
+      <div class="box is-half">
+        <p><%= t.event %></p>
+      </div>
+    <% end %>
+  </div>
+  <div class="column">
+    <h2 class="title is-4">
+      Your are Attending
+    </h2>
+    <div class="box is-half">
+      <p>You are attending</p>  
+    </div>
+  </div>
+</div>
+</div>

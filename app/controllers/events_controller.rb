@@ -3,15 +3,16 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  # def show
-  # end
+  def show
+    @event = User.find(params[:id])
+  end
 
   def new
     @event = Event.new
   end
 
   def create
-    @event = current_user.events.build(event_params)
+    @event = current_user.created_events.build(event_params)
 
     if @event.save
       redirect_to root_path

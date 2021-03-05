@@ -22,6 +22,7 @@
       </div>
     <% end %>
     <nav class="navbar has-background-link-light" role="navigation" aria-label="main navigation">
+      <div class="container">
       <div class="navbar-brand">
         <%= link_to root_path, class: 'navbar-item' do %>
           <h1 class="title is-5">Eventbride</h1>
@@ -38,11 +39,11 @@
             <% if user_signed_in? %>
               <div class="control mr-3 mb-2">
                 <h2 class="title is-4 has-text-info">
-                  Welcome <%= current_user.name  %> !
+                  Welcome <%= current_user.name%> !
                 </h2>
               </div>
               <p class="control mr-3">
-                <%= link_to 'New Event', new_event_path, class: "button is-primary" %>
+                <%= link_to 'Dashboard', current_user, class: "button is-primary" %>
               </p>
               <p class="control">
                 <%= link_to 'Log Out', '/logout', class: "button is-danger" %>
@@ -58,6 +59,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </nav>
     <%= yield %>
