@@ -1,2 +1,2 @@
-module EventAttendencesHelper
+module EventAttendancesHelper
 end

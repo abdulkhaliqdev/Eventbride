@@ -21,39 +21,34 @@
         <p class="alert"><%= alert %></p>
       </div>
     <% end %>
-    <nav class="navbar has-background-link-light" role="navigation" aria-label="main navigation">
+    <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
       <div class="container">
       <div class="navbar-brand">
         <%= link_to root_path, class: 'navbar-item' do %>
-          <h1 class="title is-5">Eventbride</h1>
+          <h1 class="title is-3 has-text-white">Eventbride</h1>
         <% end %>
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
       </div>
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
             <% if user_signed_in? %>
-              <div class="control mr-3 mb-2">
-                <h2 class="title is-4 has-text-info">
-                  Welcome <%= current_user.name%> !
+              <div class="control mr-5 mb-3">
+                <h2 class="title is-5 has-text-white">
+                  Welcome <%= current_user.name%>!
                 </h2>
               </div>
               <p class="control mr-3">
-                <%= link_to 'Dashboard', current_user, class: "button is-primary" %>
+                <%= link_to 'Dashboard', current_user, class: "button is-success" %>
               </p>
               <p class="control">
-                <%= link_to 'Log Out', '/logout', class: "button is-danger" %>
+                <%= link_to 'Log Out', '/logout', class: "button is-outlined is-danger" %>
               </p>
             <% else %>
-              <p class="control" style="margin-right:3px">
-                <%= link_to 'Sign In', '/login', class: "button is-primary" %>
+              <p class="control mr-3">
+                <%= link_to 'Sign In', '/login', class: "button is-success" %>
               </p>
               <p class="control">
-                <%= link_to 'Sign Up', '/signup', class: "button is-primary" %>
+                <%= link_to 'Sign Up', '/signup', class: "button is-success" %>
               </p>
             <% end %>
             </div>

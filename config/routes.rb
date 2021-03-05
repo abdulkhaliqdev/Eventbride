@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'events#index'
   resources :users, only: [:new, :create, :show]
   resources :events
+  resources :event_attendances, only: [:create, :show]
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

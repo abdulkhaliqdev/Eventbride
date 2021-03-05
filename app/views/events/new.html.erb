@@ -1,5 +1,27 @@
-<h1>New Event</h1>
-
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
+<div class="container mt-6">
+  <div class="columns is-centered">
+    <div class="column is-4">
+      <h2 class="title is-2 has-text-centered">New Event</h2>
+      <%= simple_form_for(@event) do |f| %>
+        <%# <% f.error_notification %1> %>
+        <div class="field">
+          <div class="control">
+            <%= f.input :event, label: "Name of event", input_html: { class: "input" }, wrapper: false, label_html: { class: "label" }, placeholder: "Event's title", autofocus: true %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :description, label: "About the Event", input_html: { class: "textarea" }, wrapper: false, label_html: { class: "label" }, placeholder: "What is this event about?" %>
+          </div>
+        </div>
+        <div class="field">
+          <div class="control">
+            <%= f.input :date, label: "Date of Event", input_html: { class: "date" }, wrapper: false, label_html: { class: "label" } %>
+          </div>
+        </div>
+        <%= f.button :submit, class: "button is-info is-fullwidth my-5" %>
+      <% end %>
+      <%= link_to 'Back', events_path %>
+    </div>
+  </div>
+</div>
