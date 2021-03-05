@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe Event, type: :model do
   let(:user) { User.create(name: 'abdul khaliq', id: 1) }
-  subject { Event.new(event: 'Ruby on rails', description: 'Event for ruby on rails', date: DateTime.now + 1.week, user_id: user.id ) }
+  subject do
+    Event.new(event: 'Ruby on rails', description: 'Event for ruby on rails', date: DateTime.now + 1.week,
+              user_id: user.id)
+  end
   context 'validation of Event' do
     it 'Event is valid with valid attributes' do
       expect(subject).to be_valid
