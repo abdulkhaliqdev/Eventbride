@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = User.find(params[:id])
+    @event_attendance = EventAttendance.new
   end
 
   def new
