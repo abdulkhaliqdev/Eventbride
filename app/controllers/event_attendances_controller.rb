@@ -1,5 +1,8 @@
 class EventAttendancesController < ApplicationController
   def new
+    @attended_event = EventAttendance.new
+    @attended_event.attendee_id = current_user.id
+    # @attended_event.attended_event_id = Event.find(params[:event_id])
   end
 
   def create
