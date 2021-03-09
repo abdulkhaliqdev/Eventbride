@@ -1,4 +1,4 @@
-<%= @event.creator.name %>
+<%= @event.event %>
       <%= form_with(model: @event_attendance, url: "/confirm_attendance", method: :post) do |form| %>
          <div class="is-hidden">
            <%= form.number_field :attendee_id, value: current_user.id%>

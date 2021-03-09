@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+  post '/confirm_attendance', to: 'event_attendances#create'
 
   # resources :events do
   #   post 'attend', on: :member
