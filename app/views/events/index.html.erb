@@ -8,6 +8,7 @@
 </div>
 <div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
 <% @events.each do |event| %>
+  <% if Date.today.to_s < event.date %>
   <div class="card mb-5 mx-5 max-width">
   <header class="card-header">
     <p class="card-header-title">
@@ -25,5 +26,32 @@
     <p class= 'card-footer-item' ><%= link_to 'More Info', event %></p>
   </footer>
   </div>
+  <% end %>
+<% end %>
+</div>
+<div class="container is-flex mt-6 is-justify-content-space-between">
+  <h1 class="title mb-4">Passed Events</h1>
+</div>
+<div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
+<% @events.each do |event| %>
+  <% if Date.today.to_s > event.date %>
+  <div class="card mb-5 mx-5 max-width">
+  <header class="card-header">
+    <p class="card-header-title">
+      <strong><%= event.event %></strong><br />
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p><%= event.description %></p><br />
+      <p><%= event.date.to_date %></p>
+      <p><%=  event.date.strftime('%I:%M %p') %></p>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <p class= 'card-footer-item' ><%= link_to 'More Info', event %></p>
+  </footer>
+  </div>
+  <% end %>
 <% end %>
 </div>
