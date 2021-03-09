@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
   def index
     @users = User.all
   end
@@ -12,9 +14,9 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to root_path, notice: 'User was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity 
     end
   end
 

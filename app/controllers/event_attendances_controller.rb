@@ -7,9 +7,9 @@ class EventAttendancesController < ApplicationController
     @attended_event = EventAttendance.new(event_attendance_params)
 
     if @attended_event.save
-      redirect_to root_path
+      redirect_to root_path, notice: 'You become the Attendee of the Event'
     else
-      render :new
+      render :new, alert: 'Unable to become the Attendee of an the Event'
     end
   end
 

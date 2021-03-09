@@ -7,8 +7,7 @@
   <% end %>
 </div>
 <div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
-<% @events.each do |event| %>
-  <% if Date.today.to_s < event.date %>
+<% @events.upcoming.each do |event| %>
   <div class="card mb-5 mx-5 max-width">
   <header class="card-header">
     <p class="card-header-title">
@@ -26,15 +25,13 @@
     <p class= 'card-footer-item' ><%= link_to 'More Info', event %></p>
   </footer>
   </div>
-  <% end %>
 <% end %>
 </div>
 <div class="container is-flex mt-6 is-justify-content-space-between">
   <h1 class="title mb-4">Passed Events</h1>
 </div>
 <div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
-<% @events.each do |event| %>
-  <% if Date.today.to_s > event.date %>
+<% @events.past.each do |event| %>
   <div class="card mb-5 mx-5 max-width">
   <header class="card-header">
     <p class="card-header-title">
@@ -52,6 +49,5 @@
     <p class= 'card-footer-item' ><%= link_to 'More Info', event %></p>
   </footer>
   </div>
-  <% end %>
 <% end %>
 </div>

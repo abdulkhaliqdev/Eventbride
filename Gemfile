@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'bulma-rails'
 gem 'rexml'
 gem 'simple_form'
+gem 'flash_rails_messages'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

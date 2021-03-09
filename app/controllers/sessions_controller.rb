@@ -6,9 +6,9 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to root_path, notice: 'User was successfully SignIn.'
     else
-      render :new
+      redirect_to '/login', alert: 'Unable to locat the User'
     end
   end
 
