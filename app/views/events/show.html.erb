@@ -1,8 +1,46 @@
-<%= @event.event %>
-      <%= form_with(model: @event_attendance, url: "/confirm_attendance", method: :post) do |form| %>
-         <div class="is-hidden">
-           <%= form.number_field :attendee_id, value: current_user.id%>
-           <%= form.number_field :attended_event_id, value: @event.id%>
-         </div>
-         <%= form.submit 'Attend Event' %>
-      <% end %>
+<div class="container mt-6">
+  <h1 class="title is-1">
+    <%= @event.event %> 
+  </h1>
+  <h1 class="title is-5">
+    <%= @event.description %>
+  </h1>
+  <h1 class="title is-6">
+  <p class="mb-0"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @event.date.to_date %></p>
+  <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @event.date.strftime('%I:%M %p') %></p>
+  </h1>
+
+  <% if current_user.id == @event.creator.id %>
+  <h1 class="title is-6">
+    Create By: You
+  </h1>
+  <% else %>
+  <h1 class="title is-6">
+    Create By: <%= @event.creator.name %>
+  </h1>
+  <% end %>
+
+
+  <% if current_user.id != @event.creator_id %>
+    <%= form_with(model: @event_attendance, url: "/confirm_attendance", method: :post) do |form| %>
+      <div class="is-hidden">
+        <%= form.number_field :attendee_id, value: current_user.id%>
+        <%= form.number_field :attended_event_id, value: @event.id%>
+      </div>
+      <%= form.submit 'Attend Event', class:"button is-success is-medium" %>
+    <% end %>
+  <% else %>
+    <%= link_to "Back", :back , class:"button is-success is-medium" %>
+  <% end %>
+
+<h1 class= "title is-6 mt-6">Guest List
+  <% @event.attendees.each do |attendee|%>
+   <div class="column">
+    <h2 class="title is-4">
+      <%= attendee.name %>
+    </h2>
+    </div>
+  <% end %>
+</h1>
+
+</div>

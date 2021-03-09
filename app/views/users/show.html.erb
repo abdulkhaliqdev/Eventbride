@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-6">
   <h1 class="title is-1">
     <%= @user.name%>
   </h1>
@@ -8,8 +8,13 @@
       Your Events
     </h2>
     <% @user.created_events.each do |t| %>
-      <div class="box is-half">
-        <p><%= t.event %></p>
+      <div class="is-flex is-justify-content-space-between box is-half">
+        <p><%= link_to t.event, t ,class:"button is-info is-outlined"%></p>
+        <p class="button is-danger">
+          <%= link_to t, method: :delete,data: { confirm: "Are you sure you want to delete this Event?"} do %>
+            <span class="icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
+          <% end %> 
+        </p>
       </div>
     <% end %>
   </div>
@@ -17,9 +22,12 @@
     <h2 class="title is-4">
       Your are Attending
     </h2>
-    <div class="box is-half">
-      <p>You are attending</p>  
-    </div>
+    <% @user.attended_event.each do |ae| %>
+      <div class="is-flex is-justify-content-space-between box is-half">
+        <%= link_to ae.event, ae, class:"button is-info is-outlined" %>
+        <p><%= link_to 'cencel Attendance', ae ,class:"button is-danger"%></p>
+      </div>
+      <% end %>
   </div>
 </div>
 </div>

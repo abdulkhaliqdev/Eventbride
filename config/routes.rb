@@ -12,8 +12,5 @@ Rails.application.routes.draw do
   post '/users' => 'users#create'
   post '/confirm_attendance', to: 'event_attendances#create'
 
-  # resources :events do
-  #   post 'attend', on: :member
-  # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

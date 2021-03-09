@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
   </head>
 
   <body>
@@ -41,7 +42,7 @@
                 <%= link_to 'Dashboard', current_user, class: "button is-success" %>
               </p>
               <p class="control">
-                <%= link_to 'Log Out', '/logout', class: "button is-outlined is-danger" %>
+                <%= link_to 'Log Out', '/logout', class: "button is-danger" %>
               </p>
             <% else %>
               <p class="control mr-3">

@@ -17,18 +17,18 @@
   <div class="card-content">
     <div class="content">
       <p><%= event.description %></p><br />
-      <p><%= event.date.to_date %></p>
-      <p><%=  event.date.strftime('%I:%M %p') %></p>
+      <p class="mb-0"><i class="fa fa-calendar" aria-hidden="true"></i> <%= event.date.to_date %></p>
+      <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= event.date.strftime('%I:%M %p') %></p>
     </div>
   </div>
   <footer class="card-footer">
-    <p class= 'card-footer-item' ><%= link_to 'More Info', event %></p>
+    <%= link_to 'More Info', event, class:"button card-footer-item is-success" %>
   </footer>
   </div>
 <% end %>
 </div>
 <div class="container is-flex mt-6 is-justify-content-space-between">
-  <h1 class="title mb-4">Passed Events</h1>
+  <h1 class="title mb-4">Past Events</h1>
 </div>
 <div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
 <% @events.past.each do |event| %>
@@ -38,15 +38,15 @@
       <strong><%= event.event %></strong><br />
     </p>
   </header>
-  <div class="card-content">
+   <div class="card-content">
     <div class="content">
       <p><%= event.description %></p><br />
-      <p><%= event.date.to_date %></p>
-      <p><%=  event.date.strftime('%I:%M %p') %></p>
+      <p class="mb-0"><i class="fa fa-calendar" aria-hidden="true"></i> <%= event.date.to_date %></p>
+      <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= event.date.strftime('%I:%M %p') %></p>
     </div>
   </div>
   <footer class="card-footer">
-    <p class= 'card-footer-item' ><%= link_to 'More Info', event %></p>
+    <i class="fa fa-lock button card-footer-item is-success" aria-hidden="true"></i>
   </footer>
   </div>
 <% end %>
