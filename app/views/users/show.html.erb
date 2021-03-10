@@ -25,9 +25,6 @@
     <% @user.attended_event.upcoming.each do |ae| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <%= link_to ae.event, ae, class:"button is-info is-outlined" %>
-        <%= link_to ae, method: :delete, data: { confirm: "Are you sure you want to cancel your attendance?"} do %>
-          <p class="button is-danger">Cancel Attendance</p>
-        <% end %> 
       </div>
       <% end %>
   </div>
