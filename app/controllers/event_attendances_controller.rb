@@ -19,7 +19,7 @@ class EventAttendancesController < ApplicationController
   end
 
   def destroy
-    @attended_event = EventAttendance.find_by(attended_event_id: event_attendance_params[:attended_event_id])
+    @attended_event = EventAttendance.find_by(event_attendance_params)
     if @attended_event.destroy
       redirect_to current_user, notice: 'You have cancelled your attendance'
     end
