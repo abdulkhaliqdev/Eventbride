@@ -12,7 +12,7 @@
         <p><%= link_to t.event, t ,class:"button is-info is-outlined"%></p>
         <p class="button is-danger">
           <%= link_to t, method: :delete,data: { confirm: "Are you sure you want to delete this Event?"} do %>
-            <span class="icon"><i class="fa fa-trash" aria-hidden="true"></i></span>
+            <span class="icon has-text-white"><i class="fa fa-trash" aria-hidden="true"></i></span>
           <% end %> 
         </p>
       </div>
@@ -25,7 +25,9 @@
     <% @user.attended_event.each do |ae| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <%= link_to ae.event, ae, class:"button is-info is-outlined" %>
-        <p><%= link_to 'cencel Attendance', ae ,class:"button is-danger"%></p>
+        <%= link_to ae, method: :delete, data: { confirm: "Are you sure you want to cancel your attendance?"} do %>
+          <p class="button is-danger">Cancel Attendance</p>
+        <% end %> 
       </div>
       <% end %>
   </div>

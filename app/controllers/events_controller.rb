@@ -5,6 +5,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    # @event_attendance = EventAttendance.find_by(params[:attended_event_id])
   end
 
   def new
@@ -24,7 +25,7 @@ class EventsController < ApplicationController
   def destroy
     @event = Event.find(params[:id])
     if @event.destroy
-      redirect_to user_url, notice: 'Event was successfully cencel'
+      redirect_to current_user, notice: 'Event was successfully cencel'
     end
   end
 
