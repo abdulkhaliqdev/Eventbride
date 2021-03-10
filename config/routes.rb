@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
   post '/confirm_attendance', to: 'event_attendances#create'
+  delete '/cancel_attendance', to: 'event_attendances#destroy'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
