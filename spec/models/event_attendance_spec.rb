@@ -1,5 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe EventAttendance, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'Association of attendance' do
+    it 'belongs to attendee' do
+      should belong_to(:attendee)
+    end
+    it 'belongs to attended Event' do
+      should belong_to(:attended_event)
+    end
+  end
 end
