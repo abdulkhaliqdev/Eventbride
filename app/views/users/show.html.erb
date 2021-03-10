@@ -22,7 +22,7 @@
     <h2 class="title is-4">
       Your are Attending
     </h2>
-    <% @user.attended_event.each do |ae| %>
+    <% @user.attended_event.upcoming.each do |ae| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <%= link_to ae.event, ae, class:"button is-info is-outlined" %>
         <%= link_to ae, method: :delete, data: { confirm: "Are you sure you want to cancel your attendance?"} do %>
@@ -30,6 +30,16 @@
         <% end %> 
       </div>
       <% end %>
+  </div>
+  <div class="column">
+    <h2 class="title is-4">
+    Past Events
+    </h2>
+    <% @user.attended_event.past.each do |t| %>
+      <div class="is-flex is-justify-content-space-between box is-half">
+        <p><%= link_to t.event, t ,class:"button is-info is-outlined"%></p>
+      </div>
+    <% end %>
   </div>
 </div>
 </div>
