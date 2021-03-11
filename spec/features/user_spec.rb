@@ -1,9 +1,14 @@
 require 'rails_helper'
 
+# rubocop:disable Metric/BlockLength
+
 RSpec.feature 'Users', type: :feature do
   let(:user_one) { User.new(name: 'abdul12') }
   let(:user_two) { User.new(name: 'jaim12') }
-  let(:event) { Event.new(creator_id: user_one.id, event: 'Private Events', description: 'Create website for Private Event with Ruby on Rail', date: DateTime.current+1.week) }
+  let(:event) do
+    Event.new(creator_id: user_one.id, event: 'Private Events',
+              description: 'Create website for Private Event with Ruby on Rail', date: DateTime.current + 1.week)
+  end
 
   def login_user(user)
     visit '/login'
@@ -36,3 +41,5 @@ RSpec.feature 'Users', type: :feature do
     end
   end
 end
+
+# rubocop:enable Metric/BlockLength

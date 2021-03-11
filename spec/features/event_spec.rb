@@ -1,10 +1,15 @@
 require 'rails_helper'
 
+# rubocop:disable Metric/BlockLength
+
 RSpec.feature 'Events', type: :feature do
   let(:user_one) { User.new(name: 'abdul12') }
-  let(:event) { Event.new(creator_id: user_one.id, event: 'Private Events', description: 'Create website for Private Event with Ruby on Rail', date: DateTime.current+1.week) }
+  let(:event) do
+    Event.new(creator_id: user_one.id, event: 'Private Events',
+              description: 'Create website for Private Event with Ruby on Rail', date: DateTime.current + 1.week)
+  end
 
-  def createEvent(event)
+  def create_event(event)
     visit new_event_path
     within('.createEvent1') do
       fill_in 'Name of event', with: event.event
@@ -38,7 +43,7 @@ RSpec.feature 'Events', type: :feature do
     scenario 'Successfully Create Event' do
       user_one.save
       login_user(user_one)
-      createEvent(event)
+      create_event(event)
       expect(page).to have_content 'Event is successfully created.'
     end
 
@@ -46,7 +51,7 @@ RSpec.feature 'Events', type: :feature do
       event.description = ''
       user_one.save
       login_user(user_one)
-      createEvent(event)
+      create_event(event)
       expect(page).to have_content "can't be blank"
     end
   end
@@ -55,8 +60,10 @@ RSpec.feature 'Events', type: :feature do
     scenario 'Display Event oN Index' do
       user_one.save
       login_user(user_one)
-      createEvent(event)
+      create_event(event)
       expect(page).to have_content event.event
     end
   end
 end
+
+# rubocop:enable Metric/BlockLength

@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "EventAttendences", type: :request do
-
+RSpec.describe 'EventAttendences', type: :request do
 end

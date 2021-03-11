@@ -24,9 +24,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    if @event.destroy
-      redirect_to current_user, notice: 'Event was successfully cencel'
-    end
+    redirect_to current_user, notice: 'Event was successfully cencel' if @event.destroy
   end
 
   private

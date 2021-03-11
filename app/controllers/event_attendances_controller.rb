@@ -5,8 +5,7 @@ class EventAttendancesController < ApplicationController
     @attended_event = EventAttendance.new
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @attended_event = EventAttendance.new(event_attendance_params)
@@ -20,9 +19,7 @@ class EventAttendancesController < ApplicationController
 
   def destroy
     @attended_event = EventAttendance.find_by(event_attendance_params)
-    if @attended_event.destroy
-      redirect_to current_user, notice: 'You have cancelled your attendance'
-    end
+    redirect_to current_user, notice: 'You have cancelled your attendance' if @attended_event.destroy
   end
 
   private
