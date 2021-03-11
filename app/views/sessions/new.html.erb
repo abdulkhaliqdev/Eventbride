@@ -3,10 +3,10 @@
     <div class="columns is-centered">
       <div class="column is-4">
         <h1 class="title is-2">LogIn</h1>
-          <%= form_tag '/login' do %>
+          <%= form_tag '/login' do%>
             <div class="field">
-            <div class="control">
-              <h1 class="title is-6 mb-2">Username</h1>
+            <div class="control session">
+              <%= label_tag :name, "Username" ,class:"title is-6 mb-2" %>   
               <%= text_field_tag :name,"",autofocus: true, class: 'input is-normal' %>
             </div>
             </div>

@@ -5,8 +5,8 @@
         <h1 class="title">SignUp</h1>
          <%= simple_form_for(@user) do |f| %>
            <div class="field">
-            <div class="control">
-              <%= f.input :name, required: false, autofocus: true, wrapper: false, input_html: { class: "input" }, label_html: { class: "label"} %>
+            <div class="control session">
+              <%= f.input :name, required: false, autofocus: true, wrapper: false, label: 'name', input_html: { class: "input" }, label_html: { class: "label"} %>
             </div>
            </div>
            <div class="field">
