@@ -10,17 +10,9 @@
   <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @event.date.strftime('%I:%M %p') %></p>
   </h1>
 
-  <% if user_signed_in? && current_user.id == @event.creator.id %>
-  <h1 class="title is-6">
-    Create By: You
-  </h1>
-  <% else %>
-  <h1 class="title is-6">
-    Create By: <%= @event.creator.name %>
-  </h1>
-  <% end %>
+  <%= create_partical(current_user, @event) %>
 
-<%# <% flag = false %>
+<% flag = false %>
 
 <h1 class= "title is-6 mt-6">Guest List
   <% @event.attendees.each do |attendee|%>
@@ -28,11 +20,11 @@
     <h2 class="title is-4">
       <%= attendee.name %>
     </h2>
-      <%# <% check_attendee(current_user, attendee, flag) %>
+      <% flag = check_attendee(current_user, attendee) %>
    </div>
   <% end %>
 </h1>
-<% attendances_method %>
+<%= attendances_method(flag, current_user, @event) %>
 <%= link_to "Back", :back , class:"button is-success is-medium" %>
 
 </div>
