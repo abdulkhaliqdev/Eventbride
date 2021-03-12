@@ -20,40 +20,19 @@
   </h1>
   <% end %>
 
-<% flag = false %>
+<%# <% flag = false %>
 
-
-  
 <h1 class= "title is-6 mt-6">Guest List
   <% @event.attendees.each do |attendee|%>
    <div class="column is-flex is-justify-content-space-between">
     <h2 class="title is-4">
       <%= attendee.name %>
     </h2>
-    <% flag = true if current_user == attendee %>    
+      <%# <% check_attendee(current_user, attendee, flag) %>
    </div>
   <% end %>
 </h1>
-
-<%if flag == true %>
-  <%= form_with(model: @event_attendance, url: "/cancel_attendance", method: :delete) do |form| %>
-    <div class="is-hidden">
-      <%= form.number_field :attendee_id, value: current_user.id if current_user%>
-      <%= form.number_field :attended_event_id, value: @event.id%>
-    </div>
-    <%= form.submit 'Cancel Attendance', class:"button is-danger is-medium" %>
-  <% end %>
-<% else %>
-  <% if user_signed_in? && current_user.id != @event.creator_id %>
-      <%= form_with(model: @event_attendance, url: "/confirm_attendance", method: :post) do |form| %>
-        <div class="is-hidden">
-          <%= form.number_field :attendee_id, value: current_user.id%>
-          <%= form.number_field :attended_event_id, value: @event.id%>
-        </div>
-        <%= form.submit 'Attend Event', class:"button is-success is-medium" %>
-      <% end %>
-  <% end %>
-<% end %>
+<% attendances_method %>
 <%= link_to "Back", :back , class:"button is-success is-medium" %>
 
 </div>

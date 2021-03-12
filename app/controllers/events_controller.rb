@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
   def index
     @events = Event.all
+    @past_events = Event.past
+    @upcoming_events = Event.upcoming
   end
 
   def show
     @event = Event.find(params[:id])
-    # @event_attendance = EventAttendance.find_by(params[:attended_event_id])
   end
 
   def new

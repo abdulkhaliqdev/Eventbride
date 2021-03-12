@@ -7,7 +7,7 @@
     <h2 class="title is-4">
       Your Events
     </h2>
-    <% @user.created_events.each do |t| %>
+    <% @created_events.each do |t| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <p><%= link_to t.event, t ,class:"button is-info is-outlined"%></p>
         <p class="button is-danger">
@@ -22,7 +22,7 @@
     <h2 class="title is-4">
       Your are Attending
     </h2>
-    <% @user.attended_event.upcoming.each do |ae| %>
+    <% @upcoming_events.each do |ae| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <%= link_to ae.event, ae, class:"button is-info is-outlined" %>
       </div>
@@ -32,7 +32,7 @@
     <h2 class="title is-4">
     Past Events
     </h2>
-    <% @user.attended_event.past.each do |t| %>
+    <% @past_events.each do |t| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <p><%= link_to t.event, t ,class:"button is-info is-outlined"%></p>
       </div>

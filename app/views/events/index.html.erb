@@ -1,13 +1,9 @@
 <div class="container is-flex mt-6 is-justify-content-space-between">
   <h1 class="title mb-4">Upcoming Events</h1>
-  <% if user_signed_in? %>
-  <p class="control mr-3">
-    <%= link_to 'Create Event', new_event_path, class: "button is-success" %>
-  </p>
-  <% end %>
+    <%= created_event_button %>
 </div>
 <div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
-<% @events.upcoming.each do |event| %>
+<%  @upcoming_events.each do |event| %>
   <div class="card mb-5 mx-5 max-width">
   <header class="card-header">
     <p class="card-header-title">
@@ -31,7 +27,7 @@
   <h1 class="title mb-4">Past Events</h1>
 </div>
 <div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
-<% @events.past.each do |event| %>
+<% @past_events.each  do |event| %>
   <div class="card mb-5 mx-5 max-width">
   <header class="card-header">
     <p class="card-header-title">

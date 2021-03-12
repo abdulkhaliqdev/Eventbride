@@ -1,0 +1,7 @@
+<%= form_with(model: @event_attendance, url: "/cancel_attendance", method: :delete) do |form| %>
+  <div class="is-hidden">
+    <%= form.number_field :attendee_id, value: current_user.id if current_user%>
+    <%= form.number_field :attended_event_id, value: @event.id%>
+  </div>
+  <%= form.submit 'Cancel Attendance', class:"button is-danger is-medium" %>
+<% end %>
