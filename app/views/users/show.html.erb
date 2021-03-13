@@ -7,7 +7,23 @@
     <h2 class="title is-4">
       Your Events
     </h2>
-    <% @created_events.each do |t| %>
+    <h2 class="title is-4">
+      Upcoming Events
+    </h2>
+    <% @created_events.upcoming.each do |t| %>
+      <div class="is-flex is-justify-content-space-between box is-half">
+        <p><%= link_to t.event, t ,class:"button is-info is-outlined"%></p>
+        <p class="button is-danger">
+          <%= link_to t, method: :delete,data: { confirm: "Are you sure you want to delete this Event?"} do %>
+            <span class="icon has-text-white"><i class="fa fa-trash" aria-hidden="true"></i></span>
+          <% end %> 
+        </p>
+      </div>
+    <% end %>
+    <h2 class="title is-4">
+      Past Events
+    </h2>
+    <% @created_events.past.each do |t| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <p><%= link_to t.event, t ,class:"button is-info is-outlined"%></p>
         <p class="button is-danger">
@@ -22,15 +38,16 @@
     <h2 class="title is-4">
       Your are Attending
     </h2>
+    <h2 class="title is-4">
+      Upcoming Events
+    </h2>
     <% @upcoming_events.each do |ae| %>
       <div class="is-flex is-justify-content-space-between box is-half">
         <%= link_to ae.event, ae, class:"button is-info is-outlined" %>
       </div>
       <% end %>
-  </div>
-  <div class="column">
     <h2 class="title is-4">
-    Past Events
+      Past Events
     </h2>
     <% @past_events.each do |t| %>
       <div class="is-flex is-justify-content-space-between box is-half">
