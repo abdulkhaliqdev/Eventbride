@@ -8,9 +8,40 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" %>
   </head>
 
   <body>
+    <% if  flash[:notice] %>
+      <div class="notification is-primary global-notification mb-0">
+        <p class="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if  flash[:alert] %>
+      <div class="notification is-danger global-notification mb-0">
+        <p class="alert"><%= alert %></p>
+      </div>
+    <% end %>
+    <nav class="navbar has-background-info" role="navigation" aria-label="main navigation">
+      <div class="container">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: 'navbar-item' do %>
+          <h1 class="title is-3 has-text-white">Eventbride</h1>
+        <% end %>
+        <%= link_to root_path, class: 'navbar-item' do %>
+          <p class='button is-success'>Home</p>
+        <% end %>
+      </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <%= login_and_logout %>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>

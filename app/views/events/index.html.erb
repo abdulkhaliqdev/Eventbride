@@ -1,0 +1,49 @@
+<div class="container is-flex mt-6 is-justify-content-space-between">
+  <h1 class="title mb-4">Upcoming Events</h1>
+    <%= created_event_button %>
+</div>
+<div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
+<%  @upcoming_events.each do |event| %>
+  <div class="card mb-5 mx-5 max-width">
+  <header class="card-header">
+    <p class="card-header-title">
+      <strong><%= event.event %></strong><br />
+    </p>
+  </header>
+  <div class="card-content">
+    <div class="content">
+      <p><%= event.description %></p><br />
+      <p class="mb-0"><i class="fa fa-calendar" aria-hidden="true"></i> <%= event.date.to_date %></p>
+      <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= event.date.strftime('%I:%M %p') %></p>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <%= link_to 'More Info', event, class:"button card-footer-item is-success" %>
+  </footer>
+  </div>
+<% end %>
+</div>
+<div class="container is-flex mt-6 is-justify-content-space-between">
+  <h1 class="title mb-4">Past Events</h1>
+</div>
+<div class="container pt-4 is-flex is-flex-wrap-wrap is-justify-content-start">
+<% @past_events.each  do |event| %>
+  <div class="card mb-5 mx-5 max-width">
+  <header class="card-header">
+    <p class="card-header-title">
+      <strong><%= event.event %></strong><br />
+    </p>
+  </header>
+   <div class="card-content">
+    <div class="content">
+      <p><%= event.description %></p><br />
+      <p class="mb-0"><i class="fa fa-calendar" aria-hidden="true"></i> <%= event.date.to_date %></p>
+      <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= event.date.strftime('%I:%M %p') %></p>
+    </div>
+  </div>
+  <footer class="card-footer">
+    <%= link_to 'More Info', event, class:"button card-footer-item is-success" %>
+  </footer>
+  </div>
+<% end %>
+</div>

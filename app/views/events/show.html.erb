@@ -1,0 +1,30 @@
+<div class="container mt-6">
+  <h1 class="title is-1">
+    <%= @event.event %> 
+  </h1>
+  <h1 class="title is-5">
+    <%= @event.description %>
+  </h1>
+  <h1 class="title is-6">
+  <p class="mb-0"><i class="fa fa-calendar" aria-hidden="true"></i> <%= @event.date.to_date %></p>
+  <p><i class="fa fa-clock-o" aria-hidden="true"></i> <%= @event.date.strftime('%I:%M %p') %></p>
+  </h1>
+
+  <%= create_partical(current_user, @event) %>
+
+<% flag = false %>
+
+<h1 class= "title is-6 mt-6">Guest List
+  <% @event.attendees.each do |attendee|%>
+   <div class="column is-flex is-justify-content-space-between">
+    <h2 class="title is-4">
+      <%= attendee.name %>
+    </h2>
+      <% flag = check_attendee(current_user, attendee) %>
+   </div>
+  <% end %>
+</h1>
+<%= attendances_method(flag, current_user, @event) %>
+<%= link_to "Back", :back , class:"button is-success is-medium" %>
+
+</div>
