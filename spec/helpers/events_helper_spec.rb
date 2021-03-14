@@ -11,7 +11,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe EventsHelper, type: :helper do
-  let(:user) { User.create(name: 'abdul khaliq', id: 1) }
+  let(:user) { User.new(name: 'abdul khaliq', id: 1) }
 
   def login_user(user)
     visit '/login'
@@ -24,8 +24,9 @@ RSpec.describe EventsHelper, type: :helper do
   describe EventsHelper do
     describe 'created event button' do
       it 'check User is sign in or not' do
+        user.save
         login_user(user)
-        expect(page).to have_content 'Create Event'
+        expect(page).to have_selector(:link_or_button, 'Create Event')
       end
     end
   end
